@@ -1,0 +1,7 @@
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\bin\Debug\Module5.exe.config
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\bin\Debug\Module5.exe
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\bin\Debug\Module5.pdb
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\obj\Debug\Module5.csproj.AssemblyReference.cache
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\obj\Debug\Module5.csproj.CoreCompileInputs.cache
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\obj\Debug\Module5.exe
+C:\Users\LocalUser\SkillFactory\repos\Module5\Module5\obj\Debug\Module5.pdb
