@@ -13,6 +13,13 @@ namespace Module5
             (string Name, string[] Dishes) User;
 
 
+            #region Tuple
+            var (name, age) = ("Елена", 42);
+            Console.WriteLine("Введите имя: ");
+            name = Console.ReadLine();
+            #endregion
+
+
             Console.WriteLine("Напишите свое имя: ");
             User.Name = Console.ReadLine();
 
@@ -35,7 +42,7 @@ namespace Module5
 
             for (int i = 0;i< favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor();
+                favcolors[i] = ShowColor(name);
             }
 
             Console.WriteLine("Ваши любимые цвета: ");
@@ -51,9 +58,9 @@ namespace Module5
 
         }
 
-        static string ShowColor()
+        static string ShowColor(string username)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            Console.WriteLine("{0}, напишите свой любимый цвет на английском с маленькой буквы", username);
             var color = Console.ReadLine();
             
             switch (color)
