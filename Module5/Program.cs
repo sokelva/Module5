@@ -108,9 +108,9 @@ namespace Module5
 
         //метод возвращает массив
 
-        static void GetArrayFromConsole()
+        static void GetArrayFromConsole(int num = 5)
         {
-            var result = new int[5];
+            var result = new int[num];
 
             for (int i = 0; i < result.Length; i++)
             {
@@ -132,6 +132,46 @@ namespace Module5
         {
             Array.Sort(result);
             return result;
+        }
+
+        //Массив параметров
+
+        //static void ShowColors(name, favcolors)
+        //{
+        //    Console.WriteLine("Ваши любимые цвета:");
+        //    foreach (var color in favcolors)
+        //    {
+        //        Console.WriteLine(color);
+        //    }
+        //}
+
+
+        static void SortComplexArray(int[,] arr)
+        {
+            int temp;
+            for (int i = 0; i <= arr.GetUpperBound(0); i++)
+            {
+                for (int j = 0; j <= arr.GetUpperBound(1); j++)
+                    for (int k = j + 1; k <= arr.GetUpperBound(1); k++)
+                        if (arr[i, j] > arr[i, k])
+                        {
+                            temp = arr[i, k];
+                            arr[i, k] = arr[i, j];
+                            arr[i, j] = temp;
+                        }
+            }
+        }
+
+        static void Sort(string[] args)
+        {
+
+            int[,] arr = {
+                    { - 5,6,9,1,2,-3},
+                    { - 8,8,1,1,2,-3}
+                  };
+
+            SortComplexArray(arr);
+
         }
 
     }
