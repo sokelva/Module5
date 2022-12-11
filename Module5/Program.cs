@@ -14,7 +14,7 @@ namespace Module5
 
             //int [] array = new int[3];
             //int[] array = GetArrayFromConsole();
-            var array = GetArrayFromConsole(3);
+            var array = GetArrayFromConsole(10);
             Console.ReadKey();
 
             GetArrayFromConsole();
@@ -130,19 +130,13 @@ namespace Module5
             //{
             //    Console.WriteLine("Элементы массива: {0}", item);
             //}
-            ShowArray(result, true);
+            result = ShowArray(result, true);
             Console.ReadKey();
 
             return result;
         }
 
-        static int[] SortArray(int[] result)
-        {
-            Array.Sort(result);
-            return result;
-        }
-
-        static void ShowArray(int[] array, bool isSort = false)
+        static int[] ShowArray(int[] array, bool isSort = false)
         {
             var temp = array;
             if (isSort)
@@ -155,6 +149,13 @@ namespace Module5
                 Console.WriteLine("Элементы массива: {0}", item);
             }
             Console.ReadKey();
+            return temp;
+        }
+
+        static int[] SortArray(int[] result)
+        {
+            Array.Sort(result);
+            return result;
         }
 
         //Массив параметров
