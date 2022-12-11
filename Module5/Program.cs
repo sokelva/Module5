@@ -12,6 +12,11 @@ namespace Module5
         {
             (string Name, string[] Dishes) User;
 
+            //int [] array = new int[3];
+            //int[] array = GetArrayFromConsole();
+            var array = GetArrayFromConsole(3);
+            Console.ReadKey();
+
             GetArrayFromConsole();
 
             #region Tuple
@@ -57,6 +62,7 @@ namespace Module5
 
             //int [] array = new int[3];
             //int[] array = GetArrayFromConsole();
+            //var array = GetArrayFromConsole(3);
             Console.ReadKey();
 
         }
@@ -108,7 +114,7 @@ namespace Module5
 
         //метод возвращает массив
 
-        static void GetArrayFromConsole(int num = 5)
+        static int[] GetArrayFromConsole(int num = 3)
         {
             var result = new int[num];
 
@@ -126,12 +132,28 @@ namespace Module5
             }
             Console.ReadKey();
 
+            return sortResult;
         }
 
         static int[] SortArray(int[] result)
         {
             Array.Sort(result);
             return result;
+        }
+
+        static void ShowArray(int[] array, bool isSort = false)
+        {
+            var temp = array;
+            if (isSort)
+            {
+                temp = SortArray(array);
+            }
+
+            foreach(var item in temp)
+            {
+                Console.WriteLine("{0}", item);
+            }
+            Console.ReadKey();
         }
 
         //Массив параметров
