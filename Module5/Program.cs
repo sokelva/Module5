@@ -12,6 +12,7 @@ namespace Module5
         {
             (string Name, string[] Dishes) User;
 
+            GetArrayFromConsole();
 
             #region Tuple
             var (name, age) = ("Елена", 42);
@@ -29,20 +30,20 @@ namespace Module5
 
             for (int i = 0; i < User.Dishes.Length; i++)
             {
-                Console.WriteLine("Введите любимое блюдо {0}: ", i+1);
+                Console.WriteLine("Введите любимое блюдо {0}: ", i + 1);
                 User.Dishes[i] = Console.ReadLine();
-                
+
             }
             Console.WriteLine("Ваши любимые блюда: ");
             foreach (var dish in User.Dishes)
             {
                 Console.WriteLine(dish);
             }
-            
 
-            string [] favcolors = new string [3];
 
-            for (int i = 0;i< favcolors.Length; i++)
+            string[] favcolors = new string[3];
+
+            for (int i = 0; i < favcolors.Length; i++)
             {
                 favcolors[i] = ShowColor(name, age);
             }
@@ -55,16 +56,16 @@ namespace Module5
 
 
             //int [] array = new int[3];
-            int[] array = GetArrayFromConsole();
+            //int[] array = GetArrayFromConsole();
             Console.ReadKey();
 
         }
 
-        static string ShowColor(string username, int userage)
+        static string ShowColor(string username, int userage)//, string [] favcolors
         {
             Console.WriteLine("{0} {1} лет,\nнапишите свой любимый цвет на английском с маленькой буквы", username, userage);
             var color = Console.ReadLine();
-            
+
             switch (color)
             {
                 case "red":
@@ -93,11 +94,21 @@ namespace Module5
                     Console.WriteLine("Your color is yellow!");
                     break;
             }
-           return color; 
+            return color;
         }
-        
+
+        //static void ShowColors(string[] favcolors)
+        //{
+        //    Console.WriteLine("Ваши любимые цвета:");
+        //    foreach (var color in favcolors)
+        //    {
+        //        Console.WriteLine(color);
+        //    }
+        //}
+
         //метод возвращает массив
-        static int[] GetArrayFromConsole()
+
+        static void GetArrayFromConsole()
         {
             var result = new int[5];
 
@@ -107,6 +118,19 @@ namespace Module5
                 result[i] = int.Parse(Console.ReadLine());
             }
 
+            int[] sortResult = SortArray(result);
+            
+            foreach (var item in sortResult)
+            {
+                Console.WriteLine("Элементы массива: {0}", item);
+            }
+            Console.ReadKey();
+
+        }
+
+        static int[] SortArray(int[] result)
+        {
+            Array.Sort(result);
             return result;
         }
 
