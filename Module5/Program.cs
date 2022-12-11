@@ -124,15 +124,16 @@ namespace Module5
                 result[i] = int.Parse(Console.ReadLine());
             }
 
-            int[] sortResult = SortArray(result);
-            
-            foreach (var item in sortResult)
-            {
-                Console.WriteLine("Элементы массива: {0}", item);
-            }
+            //int[] sortResult = SortArray(result);
+
+            //foreach (var item in sortResult)
+            //{
+            //    Console.WriteLine("Элементы массива: {0}", item);
+            //}
+            ShowArray(result, true);
             Console.ReadKey();
 
-            return sortResult;
+            return result;
         }
 
         static int[] SortArray(int[] result)
@@ -151,7 +152,7 @@ namespace Module5
 
             foreach(var item in temp)
             {
-                Console.WriteLine("{0}", item);
+                Console.WriteLine("Элементы массива: {0}", item);
             }
             Console.ReadKey();
         }
