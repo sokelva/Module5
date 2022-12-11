@@ -62,7 +62,7 @@ namespace Module5
 
         static string ShowColor(string username, int userage)
         {
-            Console.WriteLine("{0} {1} лет," + Environment.NewLine+ "напишите свой любимый цвет на английском с маленькой буквы", username, userage);
+            Console.WriteLine("{0} {1} лет,\nнапишите свой любимый цвет на английском с маленькой буквы", username, userage);
             var color = Console.ReadLine();
             
             switch (color)
