@@ -17,6 +17,8 @@ namespace Module5
             var (name, age) = ("Елена", 42);
             Console.WriteLine("Введите имя: ");
             name = Console.ReadLine();
+            Console.WriteLine("Введите возраст: ");
+            age = int.Parse(Console.ReadLine());
             #endregion
 
 
@@ -42,7 +44,7 @@ namespace Module5
 
             for (int i = 0;i< favcolors.Length; i++)
             {
-                favcolors[i] = ShowColor(name);
+                favcolors[i] = ShowColor(name, age);
             }
 
             Console.WriteLine("Ваши любимые цвета: ");
@@ -58,9 +60,9 @@ namespace Module5
 
         }
 
-        static string ShowColor(string username)
+        static string ShowColor(string username, int userage)
         {
-            Console.WriteLine("{0}, напишите свой любимый цвет на английском с маленькой буквы", username);
+            Console.WriteLine("{0} {1} лет," + Environment.NewLine+ "напишите свой любимый цвет на английском с маленькой буквы", username, userage);
             var color = Console.ReadLine();
             
             switch (color)
