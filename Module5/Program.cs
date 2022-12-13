@@ -4,19 +4,7 @@ class MainClass
 {
     static void Main(string[] args)
     {
-
-        string name = EnterUser().Name;
-        Console.WriteLine("Ваше имя: {0}", name);
-
-
-        //Console.WriteLine(PowerUp(2,6));
-        //Console.WriteLine("Напишите что-то");
-        //var str = Console.ReadLine();
-        //Console.WriteLine("Укажите глубину эха");
-        //var deep = int.Parse(Console.ReadLine());
-        //Echo(str, deep);
-        //Console.WriteLine(Factorial(20));
-        //Console.ReadKey();
+        ShowUser();
     }
 
     static (string Name, string Lastname, double Age, string [] Pets, string [] favcolors) EnterUser()
@@ -42,110 +30,127 @@ class MainClass
 
 
         #region Домашние питомцы
+        User.Pets = CreatePetsArray();
+        #endregion
+
+
+        #region Любимые цвета
+        User.favcolors = CreateFavColorsArray();
+        #endregion
+
+        return User;
+    }
+
+    static bool CheckNum(string number, out int corrnum)
+    {
+        if (int.TryParse(number, out int intnum))
+        {
+            if (intnum >0)
+            {
+                corrnum = intnum;
+                return false; 
+            }
+        }
+        {
+            corrnum = 0;
+            return true;
+        }
+    }
+
+    static string [] CreatePetsArray(int itg = 0)
+    {
         //Есть ли и сколько домашних питомцев
         Console.WriteLine("Есть ли у вас домашнее животное? Да\\Нет");
         string HasPet = Console.ReadLine();
-        string [] Pets;
-        if (HasPet == "Да")
+
+        string count;
+        if (HasPet.ToUpper() == "ДА")
         {
-            string count;
-            int itg;
             do
             {
                 Console.WriteLine("Укажите количество домашних животных");
                 count = Console.ReadLine();
 
             } while (CheckNum(count, out itg));
+        }
 
-            //Если животных > 0
-            if (itg > 0)
+        var result = new string[itg];
+
+        //Если животных > 0
+        if (itg > 0)
+        {
+            for (int i = 0; i < result.Length; i++)
             {
-                Pets = CreateArrayPets(itg);
-                User.Pets = Pets;
-                return User;
+                Console.WriteLine("Введите кличку {0} животного", i+1);
+                result[i] = Console.ReadLine();
             }
         }
-      
-        #endregion
+        return result;
+        
+    }
 
+    static string[] CreateFavColorsArray(int itg = 0)
+    {
+    //Есть ли и сколько домашних питомцев
+    Console.WriteLine("Есть ли у вас любимые цвета? Да\\Нет");
+    string IsFavColHas = Console.ReadLine();
 
-        #region Любимые цвета
-        //Есть ли и сколько домашних питомцев
-        Console.WriteLine("Есть ли у вас любимые цвета? Да\\Нет");
-        string IsFavColHas = Console.ReadLine();
-
-        string[] favcolors;
-        if (IsFavColHas == "Да")
+        if (IsFavColHas.ToUpper() == "ДА")
         {
             string count;
-            int itg;
             do
             {
                 Console.WriteLine("Укажите количество любимых цветов");
                 count = Console.ReadLine();
 
             } while (CheckNum(count, out itg));
+        }
 
-            //Если любимых цветом > 0
-            if (itg > 0)
+        var result = new string[itg];
+
+        //Если цветов > 0
+        if (itg > 0)
+        {
+            for (int i = 0; i < result.Length; i++)
             {
-                favcolors = CreateFavColorsArray(itg);
-                User.favcolors = favcolors;
-                return User;
+                Console.WriteLine("Введите {0} любимый цвет", i+1);
+                result[i] = Console.ReadLine();
             }
-        }    
-       
-        #endregion
-
-        //return User;
+        }
+        return result;
     }
 
-    static bool CheckNum(string number, out int corrnumber)
+    static void ShowUser()
     {
-        if (int.TryParse(number, out int intnum))
+        var result = EnterUser();
+        Console.WriteLine("----------------------\nВаше имя: {0}\nВаша фамилия: {1}\nВаш возраст: {2}", result.Name, result.Lastname, result.Age);
+
+        if (result.Pets.Length > 0)
         {
-            if (intnum >0)
+            Console.WriteLine("\nВаши питомцы:");
+            foreach (var item in result.Pets)
             {
-                corrnumber = intnum;
-                return false; 
+                Console.WriteLine("{0}", item);
+            }
+            
+        }
+        
+        if (result.favcolors.Length > 0)
+        {
+            Console.WriteLine("\nВаши любимые цвета:");
+            foreach (var item in result.favcolors)
+            {
+                Console.WriteLine("{0}", item);
             }
         }
         
-        {
-            corrnumber = 0;
-            return true;
-        }
-    }
-
-    static string [] CreateArrayPets(int num)
-    {
-        var result = new string[num];
-        for (int i = 0; i < result.Length; i++)
-        {
-            Console.WriteLine("Введите кличку {0} животного", i);
-            result[i] = Console.ReadLine();
-        }
-       
-        return result;
-        
-    }
-
-    static string[] CreateFavColorsArray(int num)
-    {
-
-        var result = new string[num];
-        for (int i = 0; i < result.Length; i++)
-        {
-            Console.WriteLine("Введите {0} любимый цвет", i);
-            result[i] = Console.ReadLine();
-        }
-
-        return result;
-
+        Console.ReadKey();
     }
 
 
 
+    ///Задания не относящиеся к 5.6. Итоговый проект
+    
     //static void Echo(string saidworld, int deep)
     //{
     //    var modif = saidworld;
